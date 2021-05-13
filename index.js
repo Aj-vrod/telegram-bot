@@ -10,24 +10,33 @@ bot.onText(/\/start/, (msg) => {
   const chatId = msg.chat.id;
   const startGreeting = `Greetings, new master.
   This is your booty_bot_bot and here are some commands I can respond to:
+  '/help' -> to see commands
   '/Cmusic' -> to listen to my Creator's playlist
+  '/showYourself' -> to see my profile pic
   `
   bot.sendMessage(chatId, startGreeting);
-})
+});
+
+bot.onText(/\/help/, (msg) => {
+  const chatId = msg.chat.id;
+  bot.sendMessage(chatId, "List of commands", {
+
+  })
+});
 
 bot.onText(/\/Cmusic/, (msg) => {
   const chatId = msg.chat.id;
   const url = "https://www.youtube.com/playlist?list=PLT7qNs_kSA8st0Jk1O7GVj5IHNSmnIdDm"
 
   bot.sendMessage(chatId, `This is my Creator's playlist. Enjoy ${url}`);
-})
+});
 
 bot.onText(/\/showYourself/, (msg) => {
   const chatId = msg.chat.id;
   const photo = "./assets/images/Wall-E.jpg"
 
-  bot.sendPhoto(chatId, photo, {caption: "This is me. Am I adorable or what?"});
-})
+  bot.sendPhoto(chatId, photo, {caption: "This is me. \nAm I adorable or what?"});
+});
 
 // On any message
 
