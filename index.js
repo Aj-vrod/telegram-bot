@@ -22,6 +22,13 @@ bot.onText(/\/Cmusic/, (msg) => {
   bot.sendMessage(chatId, `This is my Creator's playlist. Enjoy ${url}`);
 })
 
+bot.onText(/\/showYourself/, (msg) => {
+  const chatId = msg.chat.id;
+  const photo = "./assets/images/Wall-E.jpg"
+
+  bot.sendPhoto(chatId, photo, {caption: "This is me. Am I adorable or what?"});
+})
+
 // On any message
 
 bot.on('message', (msg) => {
@@ -34,8 +41,6 @@ bot.on('message', (msg) => {
   if (msg.text.toString().toLowerCase().includes('bye')) {
     bot.sendMessage(chatId, "See you soon, Master")
   }
-
-
 
 })
 
