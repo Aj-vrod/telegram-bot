@@ -20,7 +20,9 @@ bot.onText(/\/start/, (msg) => {
 bot.onText(/\/help/, (msg) => {
   const chatId = msg.chat.id;
   bot.sendMessage(chatId, "List of commands", {
-
+    "reply_markup": {
+      "keyboard": [["/Cmusic"], ["showYourself"]]
+    }
   })
 });
 
