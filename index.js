@@ -46,11 +46,13 @@ bot.on('message', (msg) => {
   const chatId = msg.chat.id;
 
   if (msg.text.toString().toLowerCase().startsWith('hi')) {
-    bot.sendMessage(chatId, "Hello, master. I'm ready to serve")
+    const user = msg.from.first_name;
+    bot.sendMessage(chatId, `Hello, master ${user}. I'm ready to serve`)
   }
 
   if (msg.text.toString().toLowerCase().includes('bye')) {
-    bot.sendMessage(chatId, "See you soon, Master")
+    const user = msg.from.first_name;
+    bot.sendMessage(chatId, `See you soon, Master ${user}`)
   }
 
 })
