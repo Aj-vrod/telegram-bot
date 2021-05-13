@@ -4,6 +4,9 @@ const TelegramBot = require('node-telegram-bot-api');
 const token = process.env.TELEGRAM_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 
+// Game
+const gameName = process.env.TELEGRAM_GAME;
+const gameURL = "https://aj-vrod.github.io/Wagon-race/"
 // Commands
 
 bot.onText(/\/start/, (msg) => {
