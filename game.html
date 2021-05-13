@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Wagon Race 🏎</title>
+    <link rel="shortcut icon" href="data:image/x-icon;" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      /* Your board style here */
+      .racer-table {
+        width: 100%;
+      }
+
+      .race-table, td, tr {
+        border: solid 1px rgba(0,0,0,.1);
+        border-collapse: collapse;
+      }
+
+      .racer-table td {
+        height: 90px;
+        width: 90px;
+      }
+
+      .racer-table td.active {
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+
+      #player1-race, #player2-race {
+        height: 120px;
+      }
+
+      #player1-race td.active {
+        background-image: url("images/player_1.png");
+        background-position: center;
+      }
+
+      #player2-race td.active {
+        background-image: url("images/player_2.png");
+        background-position: center;
+      }
+
+      .end {
+        background-image: url("images/finish.png");
+        background-position: center;
+        background-size: cover;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center">Wagon Race</h1>
+    <hr>
+    <!-- You race HTML code here -->
+    <div class="race-container">
+      <table class="racer-table">
+        <tr id="player1-race">
+          <td class="active"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="end"></td>
+        </tr>
+        <tr id="player2-race">
+          <td class="active"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="end"></td>
+        </tr>
+      </table>
+    </div>
+    <hr>
+
+    <script>
+
+      const restart = () => {
+        const current1ActivePosition = document.querySelector('#player1-race > .active');
+        current1ActivePosition.classList.remove('active');
+        const current2ActivePosition = document.querySelector('#player2-race > .active');
+        current2ActivePosition.classList.remove('active');
+        const activeFirstPosition = document.querySelector('#player1-race > td');
+        const activeSecondPosition = document.querySelector('#player2-race > td');
+        activeFirstPosition.classList.add('active');
+        activeSecondPosition.classList.add('active');
+      };
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'q') {
+          const activePosition = document.querySelector('#player1-race > .active');
+          if (activePosition.nextElementSibling) {
+            activePosition.nextElementSibling.classList.add("active");
+            activePosition.classList.remove("active");
+          } else {
+            window.confirm("First player wins!");
+            restart();
+          }
+        }
+      });
+
+
+      document.addEventListener('keyup', (event) => {
+        if (event.key === 'p') {
+          const activePosition = document.querySelector('#player2-race > .active');
+          if (activePosition.nextElementSibling) {
+            activePosition.nextElementSibling.classList.add("active");
+            activePosition.classList.remove("active");
+          } else {
+            window.confirm("Second player wins!");
+            restart();
+          }
+        }
+      });
+
+    </script>
+  </body>
+</html>
