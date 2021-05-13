@@ -31,6 +31,10 @@ bot.on('message', (msg) => {
     bot.sendMessage(chatId, "Hello, master. I'm ready to serve")
   }
 
+  if (msg.text.toString().toLowerCase().includes('bye')) {
+    bot.sendMessage(chatId, "See you soon, Master")
+  }
+
 
 
 })
