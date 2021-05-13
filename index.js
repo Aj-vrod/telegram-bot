@@ -6,7 +6,16 @@ const bot = new TelegramBot(token, { polling: true });
 
 // Commands
 
-bot.onText(/\/mymusic/, (msg) => {
+bot.onText(/\/start/, (msg) => {
+  const chatId = msg.chat.id;
+  const startGreeting = `Greetings, new master.
+  This is your booty_bot_bot and here are some commands I can respond to:
+  '/Cmusic' -> to listen to my Creator's playlist
+  `
+  bot.sendMessage(chatId, startGreeting);
+})
+
+bot.onText(/\/Cmusic/, (msg) => {
   const chatId = msg.chat.id;
   const url = "https://www.youtube.com/playlist?list=PLT7qNs_kSA8st0Jk1O7GVj5IHNSmnIdDm"
 
@@ -21,6 +30,8 @@ bot.on('message', (msg) => {
   if (msg.text.toString().toLowerCase().startsWith('hi')) {
     bot.sendMessage(chatId, "Hello, master. I'm ready to serve")
   }
+
+
 
 })
 
