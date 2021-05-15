@@ -1,8 +1,11 @@
 require('dotenv').config();
+
 const TelegramBot = require('node-telegram-bot-api');
 
 const token = process.env.TELEGRAM_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
+
+// Fetching from quotes API
 
 // Game
 const gameName = process.env.TELEGRAM_GAME;
