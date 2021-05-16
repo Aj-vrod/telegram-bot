@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fetch = require('node-fetch')
 
 const TelegramBot = require('node-telegram-bot-api');
 
@@ -6,6 +7,14 @@ const token = process.env.TELEGRAM_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 
 // Fetching from quotes API
+quoteURL = "https://zenquotes.io/api/random"
+const getQuote = () => {
+  return fetch(quoteURL)
+    .then(response => { return response.json() })
+    .then( data => {
+      return data[0]["q"] + " -" + data[0]["a"]
+    })
+}
 
 // Game
 const gameName = process.env.TELEGRAM_GAME;
