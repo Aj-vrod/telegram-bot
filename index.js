@@ -66,9 +66,8 @@ bot.onText(/\/game/, (msg) => {
 
 bot.onText(/\/inspire/, (msg) => {
   const chatId = msg.chat.id;
-  const quote = getQuote();
 
-  bot.sendMessage(chatId, quote)
+  getQuote().then(quote => bot.sendMessage(chatId, quote))
 })
 
 // On callbacks
