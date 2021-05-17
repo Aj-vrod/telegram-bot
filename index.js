@@ -29,6 +29,7 @@ bot.onText(/\/start/, (msg) => {
   This is your booty_bot_bot and here are some commands I can respond to:
   /help -> to see commands
   /Cmusic -> to listen to my Creator's playlist
+  /inspire -> to receive a random inspiring quote
   /showYourself -> to see my profile pic
   /game -> to start game
   `
