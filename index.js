@@ -55,7 +55,7 @@ bot.onText(/\/showYourself/, (msg) => {
   const chatId = msg.chat.id;
   const photo = "./assets/images/Wall-E.jpg"
 
-  bot.sendPhoto(chatId, photo, {caption: "This is me. \nAm I adorable or what?"});
+  bot.sendPhoto(chatId, photo, {caption: "This is a picture of me. \nAm I adorable or what?"});
 });
 
 bot.onText(/\/game/, (msg) => {
