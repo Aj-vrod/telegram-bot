@@ -90,6 +90,10 @@ bot.on('message', (msg) => {
     bot.sendMessage(chatId, `See you soon, Master ${user}`)
   }
 
+  if () {
+    
+  }
+
 })
 
 // Error handling
