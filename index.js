@@ -90,7 +90,7 @@ bot.on('message', (msg) => {
     bot.sendMessage(chatId, `See you soon, Master ${user}`)
   }
 
-  if () {
+  if (msg.text.toString().toLowerCase().includes('sad')) {
     
   }
 
