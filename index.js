@@ -91,7 +91,8 @@ bot.on('message', (msg) => {
   }
 
   if (msg.text.toString().toLowerCase().includes('sad')) {
-    
+    const user = msg.from.first_name;
+    bot.sendMessage(chatId, "I am here with you")
   }
 
 })
